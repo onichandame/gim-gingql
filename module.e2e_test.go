@@ -13,7 +13,7 @@ import (
 	"github.com/graphql-go/graphql"
 	"github.com/onichandame/gim"
 	gimgin "github.com/onichandame/gim-gin"
-	gimgingql "github.com/onichandame/gim-gingraphql"
+	gimgingql "github.com/onichandame/gim-gingql"
 	gimgraphql "github.com/onichandame/gim-graphql"
 	"github.com/stretchr/testify/assert"
 )

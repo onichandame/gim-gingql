@@ -1,4 +1,4 @@
-module github.com/onichandame/gim-gingraphql
+module github.com/onichandame/gim-gingql
 
 go 1.17
 
