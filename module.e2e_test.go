@@ -9,12 +9,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gorilla/websocket"
 	"github.com/graphql-go/graphql"
+	"github.com/graphql-go/graphql/gqlerrors"
 	"github.com/onichandame/gim"
 	gimgin "github.com/onichandame/gim-gin"
 	gimgingql "github.com/onichandame/gim-gingql"
 	gimgraphql "github.com/onichandame/gim-graphql"
+	gqlwsclient "github.com/onichandame/gql-ws/client"
+	gqlwsmessage "github.com/onichandame/gql-ws/message"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -95,32 +97,29 @@ func TestServer(t *testing.T) {
 		u, err := url.Parse(server.URL)
 		assert.Nil(t, err)
 		u.Scheme = "ws"
+		getClient := func() *gqlwsclient.Client {
+			return gqlwsclient.NewClient(&gqlwsclient.Config{
+				URL: u.String(),
+			})
+		}
 		t.Run("query", func(t *testing.T) {
-			conn, _, err := websocket.DefaultDialer.Dial(u.String(), nil)
-			assert.Nil(t, err)
-			defer conn.Close()
-			conn.WriteMessage(websocket.TextMessage, []byte(`{"query":"query{time}"}`))
-			msgType, msgData, err := conn.ReadMessage()
-			assert.Nil(t, err)
-			assert.Equal(t, websocket.TextMessage, msgType)
-			res := make(map[string]interface{})
-			assert.Nil(t, json.Unmarshal(msgData, &res))
-			assert.Nil(t, res["errors"])
-			assert.IsType(t, "", res["data"].(map[string]interface{})["time"])
+			client := getClient()
+			defer client.Close()
+			res := make(chan string)
+			client.Subscribe(gqlwsmessage.SubscribePayload{Query: `query{time}`}, gqlwsclient.Handlers{OnNext: func(r *graphql.Result) { res <- r.Data.(map[string]interface{})[`time`].(string) }, OnError: func(fe gqlerrors.FormattedErrors) { close(res) }})
+			v, ok := <-res
+			assert.True(t, ok)
+			assert.NotEmpty(t, v)
 		})
 		t.Run("subscription", func(t *testing.T) {
-			conn, _, err := websocket.DefaultDialer.Dial(u.String(), nil)
-			assert.Nil(t, err)
-			defer conn.Close()
-			conn.WriteMessage(websocket.TextMessage, []byte(`{"query":"subscription{realtime}"}`))
-			for i := 0; i < 2; i++ {
-				msgType, msgData, err := conn.ReadMessage()
-				assert.Nil(t, err)
-				assert.Equal(t, websocket.TextMessage, msgType)
-				res := make(map[string]interface{})
-				assert.Nil(t, json.Unmarshal(msgData, &res))
-				assert.Nil(t, res["errors"])
-				assert.IsType(t, "", res["data"].(map[string]interface{})["realtime"])
+			client := getClient()
+			defer client.Close()
+			res := make(chan string)
+			client.Subscribe(gqlwsmessage.SubscribePayload{Query: `subscription{realtime}`}, gqlwsclient.Handlers{OnNext: func(r *graphql.Result) { res <- r.Data.(map[string]interface{})[`realtime`].(string) }, OnError: func(fe gqlerrors.FormattedErrors) { close(res) }})
+			for i := 0; i < 10; i++ {
+				v, ok := <-res
+				assert.True(t, ok)
+				assert.NotEmpty(t, v)
 			}
 		})
 	})

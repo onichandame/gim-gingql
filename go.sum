@@ -4,8 +4,9 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
-github.com/gin-gonic/gin v1.7.4 h1:QmUZXrvJ9qZ3GfWvQ+2wnW/1ePrTEJqPKMYEU3lD/DM=
 github.com/gin-gonic/gin v1.7.4/go.mod h1:jD2toBW3GZUr5UMcdrwQA10I7RuaFOl/SGeDjXkfUtY=
+github.com/gin-gonic/gin v1.7.7 h1:3DoBmSbJbZAWqXJC3SLjAPfutPJJRN1U5pALB7EeTTs=
+github.com/gin-gonic/gin v1.7.7/go.mod h1:axIBovoeJpVj8S3BwE0uPMTeReE4+AfFtqpqaZ1qq1U=
 github.com/go-playground/assert/v2 v2.0.1 h1:MsBgLAaY856+nPRTKrp3/OZK38U/wa0CcBYNjji3q3A=
 github.com/go-playground/assert/v2 v2.0.1/go.mod h1:VDjEfimB/XKnb+ZQfWdccd7VUvScMdVu0Titje2rxJ4=
 github.com/go-playground/locales v0.13.0/go.mod h1:taPMhCMXrRLJO55olJkUXHZBHCxTMfnGwq/HNwmWNS8=
@@ -24,6 +25,8 @@ github.com/golang/protobuf v1.5.2/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiu
 github.com/google/go-cmp v0.5.5 h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0Ufc=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/graphql-go/graphql v0.8.0 h1:JHRQMeQjofwqVvGwYnr8JnPTY0AxgVy1HpHSGPLdH0I=
@@ -59,8 +62,11 @@ github.com/onichandame/gim-gin v0.0.1/go.mod h1:p2xhyOzMcb8Qe1b/CJfoCgg8EVR2ghZm
 github.com/onichandame/gim-graphql v0.0.1 h1:DnayGqP8qq5FbZyJAYF+Ie92exNbAY/Nlm1oFzogmb4=
 github.com/onichandame/gim-graphql v0.0.1/go.mod h1:56IsoPy6CmWgOZrhvg2mv92I9mzHc2A1up480sWvb+g=
 github.com/onichandame/go-utils v0.0.5/go.mod h1:/GfmJiGG8PovCgL8+PiKhe9ULzX8mwJ080ATTXo978E=
-github.com/onichandame/go-utils v0.0.6 h1:Va7ESQe3/7UZJS1PKF8Ke7AcFpJVxksDrqMPtVwULZU=
 github.com/onichandame/go-utils v0.0.6/go.mod h1:/GfmJiGG8PovCgL8+PiKhe9ULzX8mwJ080ATTXo978E=
+github.com/onichandame/go-utils v0.0.8 h1:yZfAR5TefTY/dlltHX1vKOb2ZEbqSPBi2ehaQlaF/PA=
+github.com/onichandame/go-utils v0.0.8/go.mod h1:/GfmJiGG8PovCgL8+PiKhe9ULzX8mwJ080ATTXo978E=
+github.com/onichandame/gql-ws v0.1.0 h1:YTJDj+PNNAZ2ADPRNp3XUgV9IZ+vAEkWS3i/RZKM9B8=
+github.com/onichandame/gql-ws v0.1.0/go.mod h1:N5VZ27KWLcnN780tuN/LWo7t8S5uWJ9e/meemS8R9TQ=
 github.com/pkg/diff v0.0.0-20210226163009-20ebb0f2a09e/go.mod h1:pJLUxLENpZxwdsKMEsNbx1VGcRFpLqf3715MtcvvzbA=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=

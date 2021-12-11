@@ -3,13 +3,13 @@ module github.com/onichandame/gim-gingql
 go 1.17
 
 require (
-	github.com/gin-gonic/gin v1.7.4
-	github.com/gorilla/websocket v1.4.2
+	github.com/gin-gonic/gin v1.7.7
 	github.com/graphql-go/graphql v0.8.0
 	github.com/onichandame/gim v0.6.0
 	github.com/onichandame/gim-gin v0.0.1
 	github.com/onichandame/gim-graphql v0.0.1
-	github.com/onichandame/go-utils v0.0.6
+	github.com/onichandame/go-utils v0.0.8
+	github.com/onichandame/gql-ws v0.1.0
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.0
 )
@@ -21,6 +21,8 @@ require (
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/google/uuid v1.3.0 // indirect
+	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
